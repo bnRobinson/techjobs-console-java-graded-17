@@ -77,7 +77,7 @@ public class TechJobs {
         Boolean validChoice = false;
         String[] choiceKeys = new String[choices.size()];
 
-        // Put the choices in an ordered structure so we can
+        // Put the choices in an ordered structure so that we can
         // associate an integer with each one
         int i = 0;
         for (String choiceKey : choices.keySet()) {
@@ -119,7 +119,21 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+// if some Jobs holds a valid value, print that job to the console. If not, print No Results
+if (someJobs.isEmpty()){
+    System.out.print("No Results");
+    return;
+} else {
+    for (HashMap<String,String> job : someJobs){
+        String starLine= "\n*****\n";
+        StringBuilder jobDetails= new StringBuilder(starLine);
+        for (Map.Entry<String,String> column: job.entrySet()){
+            jobDetails.append(column.getKey()).append(": ").append(column.getValue()).append("\n");
+        }
+        jobDetails.append("*****");
+        System.out.println(jobDetails);
+    }
+}
 
-        System.out.println("printJobs is not implemented yet");
     }
 }
